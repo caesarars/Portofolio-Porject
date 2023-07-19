@@ -1,0 +1,89 @@
+.sidebar_notes {
+    background-color: lightgrey;
+    position: fixed;
+    top : 0px;
+    width: 15%;
+    height: 100vh;
+}
+
+.wrapper_sidebar_notes {
+    margin: 24px;
+}
+
+#box_green {
+    width: 80%;
+    height: 180px;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 16px;
+}
+
+.box_green_added {
+    width: 200px;
+    height: 200px;
+    background-color: greenyellow;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 16px;
+}
+
+
+.wrapper_content {
+    padding: 24px;
+}
+
+.wrapper_notes {
+    margin-left: 15%;
+    padding: 24px;
+    height: 85vh;
+}
+
+.container_notes_body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.dot {
+    position: absolute;
+}
+
+
+#textarea {
+    width: 100%;
+    height: 320px;
+}
+
+.color {
+    display: flex;
+}
+
+.choose {
+    width: 50px;
+    height: 50px;
+    margin: 0 8px;
+    border-radius: 50%;
+}
+
+.color .red {
+    background-color: red;
+}
+
+.color .grey {
+    background-color: grey;
+}
+
+.color .yellow {
+    background-color: yellow;
+}
+
+.color .blue {
+    background-color: cyan;
+}
+
+.selected {
+    border: 2px solid blue;
+  }
+  

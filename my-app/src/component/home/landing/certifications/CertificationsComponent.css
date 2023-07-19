@@ -1,0 +1,9 @@
+.container_certif {
+    margin: 10px auto;
+    padding:24px;
+    width: 60%;
+}
+
+#header_certif {
+    font-weight: bold;
+}

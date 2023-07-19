@@ -1,0 +1,9 @@
+.container_history {
+    margin: 0px auto;
+    padding: 24px;
+    width: 60%;
+}
+
+#header_history {
+    font-weight: bold;
+}
