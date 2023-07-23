@@ -22,16 +22,22 @@
 }
 
 .box_green_added {
-    width: 200px;
-    height: 200px;
+    width: 320px;
+    height: 240px;
     background-color: greenyellow;
     font-family: 'Courier New', Courier, monospace;
     margin: 16px;
+    overflow: auto;
+}
+
+.box_green_added::-webkit-scrollbar {
+    display: none;
 }
 
 
 .wrapper_content {
     padding: 24px;
+    max-width: 320px;
 }
 
 .wrapper_notes {

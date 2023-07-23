@@ -12,26 +12,7 @@ export const NotesComponent = () => {
     const [elements, setElements] = useState([]);
     const [newNote, setNewNote] = useState("");
     const [newColor, setNewColor] = useState("green")
-    const [positionX, setPositionX] = useState(0);
-    const [isDragging, setDragging] = useState(false);
-    
-    const onMouseDown = (event) => {
-        setPositionX(event.clientX);
-    };
-
-    const handleDragStart = (e) => {
-        setDragging(true)
-    };
-
-    const handleDragEnd = () => {
-        setDragging(false)
-    }
-
-    const handleDrag = (e) => {
-        if(!isDragging) return;
-        const newX = 0
-    }
-      
+    const [showModal, setShowModal] = useState(false);
 
     const addNotes = () => {
         const theNote = <DraggableNoteComponent 
@@ -39,7 +20,6 @@ export const NotesComponent = () => {
             newColor={setColor(newColor)}/>
         setElements([...elements, theNote])
     }
-    const [showModal, setShowModal] = useState(false);
 
     const handleModalClose = () => {
         setShowModal(false);

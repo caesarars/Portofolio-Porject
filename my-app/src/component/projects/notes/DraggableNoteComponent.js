@@ -5,10 +5,13 @@ import { useState , useEffect } from "react";
 
 export const DraggableNoteComponent = (props) => {
 
-    const [position , setPosition] = useState({
-        x:0,
-        y:0
-    })
+    const [position , setPosition] = useState
+    (
+        {
+            x:0,
+            y:0
+        }
+    )
     const [isDragging, setIsDragging] = useState(false);
     const [relativePosition, setRelativePosition] = useState({x:0,y:0})
     const [isComponentDragged , setIsComponentDragged] = useState(false)
@@ -36,6 +39,11 @@ export const DraggableNoteComponent = (props) => {
         )
     }
 
+    const checkOverflow = (e) => {
+        return e.target.clientWidth < e.target.scrollWidth || 
+            e.target.clientHeight < e.target.scrollHeight;
+    }
+
     const handleDragEnd = (e) => {
 
         setIsDragging(false);
@@ -46,21 +54,20 @@ export const DraggableNoteComponent = (props) => {
         const relativeX = relativePosition.x
         const relativeY = relativePosition.y
 
+        const isOverflow = e.target.style.overflow
+        if ( isOverflow || isOverflow === 'visible' ) e.target.style.overflow = 'hidden';
+
+        let paddingSize = 16;
+
+        if ( checkOverflow(e) ) paddingSize += 24
+
         setPosition
         (
             { 
-                x: mousePositionX - relativeX - 16, 
-                y: mousePositionY - relativeY - 16
+                x: mousePositionX - relativeX - paddingSize, 
+                y: mousePositionY - relativeY - paddingSize
             }
         );
-    }
-
-    const shadowBox = () => {
-        return (
-            <div className="">
-
-            </div>
-        )
     }
 
     return (
@@ -80,7 +87,7 @@ export const DraggableNoteComponent = (props) => {
                 onDragEnd={handleDragEnd}
                 >
                 <div className="wrapper_content">
-                    {props.newNote}
+                    <p>{props.newNote}</p>
                 </div>
             </div>
     )
