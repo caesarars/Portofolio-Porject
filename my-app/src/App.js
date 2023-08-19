@@ -6,7 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { ProjectsHomeComponent } from './component/projects/ProjectsHomeComponent';
 import { LandingComponent } from './component/home/landing/LandingComponent';
 import { NotesComponent } from './component/projects/notes/NotesComponent';
-
+import PdfDashboardComponent from './component/projects/pdf/PdfDashboardComponent';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +14,7 @@ const router = createBrowserRouter(
       <Route index element={<LandingComponent />} />
       <Route path="projects" element={<ProjectsHomeComponent />}>
         <Route path='notes' element={<NotesComponent/>} />
+        <Route path='pdf' element={<PdfDashboardComponent />} />
       </Route>
     </Route>
   )

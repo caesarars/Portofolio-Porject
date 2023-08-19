@@ -13,7 +13,8 @@ const remainderCards = [
     {
         id: 2,
         projectName:'Hovering Translator',
-        summary: 'App for translating english word to indonesian when hovering on words.'
+        summary: 'App for translating english word to indonesian when hovering on words.',
+        route: 'pdf'
     }
 ]
 export const ProjectsHomeComponent = () => {
@@ -29,11 +30,14 @@ export const ProjectsHomeComponent = () => {
     return (
         <>        
             <div className="container_projects">
-                { !location.pathname.includes("notes") && remainderCards.map(data => (
+                { (!location.pathname.includes("notes") && !location.pathname.includes("pdf"))
+                    && remainderCards.map(data => (
+
                     <NavLink className="wrapper_project" to={"/projects/" + data.route}>
                         <h3>{data.projectName}</h3>
                         <p>{data.summary}</p>
                     </NavLink>
+
                 )) }
             </div>
             <Outlet/>
