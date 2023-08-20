@@ -1,6 +1,7 @@
 import React , {useState, useEffect, useRef} from 'react';
 import { Viewer, Worker , PdfJs, SpecialZoomLevel} from '@react-pdf-viewer/core';
 import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
+import axios from 'axios';
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
@@ -21,8 +22,8 @@ const PdfDashboardComponent = () => {
 
       useEffect(() => {
         setTextLayers(document.getElementsByClassName("rpv-core__text-layer-text"));
-        console.log(textLayers.length, 'asdaa')
-
+        console.log(textLayers.length, 'asadaa')
+          console.log(textLayers);
           const arrayTextLayers = [...textLayers].filter((layer) => layer.localName === "span");
 
           arrayTextLayers.forEach((layer) => {
@@ -66,6 +67,22 @@ const PdfDashboardComponent = () => {
         console.log(e)
       }
 
+      const handleTranlsate = async () => {
+        try {
+          const word = currentWord
+          const url = `http://localhost:3100/api/translate/${word}`
+
+          const response = await axios.post(url)
+          if (response.status == 200) {
+            setCurrentWord(response.data.data.translations[0].translatedText)
+          } else {
+            alert('error')
+          }
+        }catch(e) {
+          console.log(e)
+        }
+      }
+
   return (
     <>
        {
@@ -81,6 +98,7 @@ const PdfDashboardComponent = () => {
         }
     <div>
         <input type="file" onChange={handleFileChange} />
+        <button onClick={handleTranlsate}>translate</button>
         {pdfFile && 
         <div>
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
